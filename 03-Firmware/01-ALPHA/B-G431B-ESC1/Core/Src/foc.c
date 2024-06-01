@@ -45,11 +45,11 @@ static uint32_t current_sample_drop_rate = 3;
 static int32_t current_samples = 0;
 volatile uint16_t ADC1_DMA[5] = { 0,0,0,0,0 }; 	// Dummy conversion (ST workaround for -x),
 volatile uint16_t ADC2_DMA[3] = { 0,0,0 }; 		// Dummy conversion (ST workaround for -x)
-#define ALPHA_CURRENT_SENSE_OFFSET	0.001f
+#define ALPHA_CURRENT_SENSE_OFFSET	0.001f//采样电阻
 static uint16_t motor_current_input_adc[3] = {0.0f,0.0f,0.0f};
 static uint16_t motor_current_sample_adc[3] = {0.0f,0.0f,0.0f};
-static float motor_current_input_adc_offset[3] = {2464.0f,2482.0f,2485.0f};
-static float motor_current_input_adc_mA[3] = {0.28f,0.28f,0.28f}; // 0.28f
+static float motor_current_input_adc_offset[3] = {2464.0f,2482.0f,2485.0f};//ADC偏置
+static float motor_current_input_adc_mA[3] = {0.28f,0.28f,0.28f}; // 0.28f，增益对应16？
 static float motor_current_mA[3] = {0.0f,0.0f,0.0f};
 #define ALPHA_CURRENT_DQ	0.05f
 static float present_Id_filtered = 0.0f;
